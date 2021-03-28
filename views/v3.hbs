@@ -9,7 +9,7 @@
     </script>
     <script>
         async function bgcb() {
-            const token = await grecaptcha.execute('{{V3_PUBLIC}}', {action: 'v3'})
+            const token = await grecaptcha.execute('{{V3_PUBLIC}}', {action: 'v3'}) 
 
             const res = await fetch('/v3', {
                 method: 'POST',
