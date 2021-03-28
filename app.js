@@ -1,3 +1,5 @@
+const PORT = process.env.PORT || 3000;
+
 const path = require("path"),
   request = require("request-promise")
 require("hbs")
@@ -39,6 +41,7 @@ require("express")()
 
     res.send(result)
   })
-  .listen(3000, err => {
+  .listen(PORT, err => {
+    console.log(`Our app is running on port ${ PORT }`);
     if (err) console.error(err)
   })
