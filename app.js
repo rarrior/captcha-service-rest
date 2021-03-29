@@ -2,12 +2,16 @@ const PORT = process.env.PORT || 3000;
 
 const path = require("path"),
   request = require("request-promise")
+const cors = require('cors');
+
 require("hbs")
 
 require("dotenv").config()
+
 require("express")()
   .set("views", path.join(__dirname, "views"))
   .set("view engine", "hbs")
+  .use(cors())
   .use(require("body-parser").json())
   .get("/", (req, res) => res.render("index"))
   .get("/v2", (req, res) =>
