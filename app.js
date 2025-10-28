@@ -33,9 +33,14 @@ require("express")()
     res.send(result)
   })
   .post("/v3", async (req, res) => {
+    console.log(req.body.token);
+
     const result = JSON.parse(
       await request
-        .post("https://www.google.com/recaptcha/api/siteverify")
+        .post("https://www.google.com/recaptcha/api/siteverify", 
+        {
+          headers: { "Content-Type": "application/x-www-form-urlencoded" }
+        })
         .form({
           secret: process.env.V3_PRIVATE,
           response: req.body.token,
