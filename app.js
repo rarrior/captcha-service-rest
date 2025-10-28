@@ -32,9 +32,7 @@ require("express")()
     )
     res.send(result)
   })
-  .post("/v3", async (req, res) => {
-    console.log(req.body);
-    
+  .post("/v3", async (req, res) => {    
     const result = JSON.parse(
       await request
         .post("https://www.google.com/recaptcha/api/siteverify")
@@ -43,8 +41,7 @@ require("express")()
           response: req.body.token,
           remoteip: req.ip
         })
-    )
-
+    );
     res.send(result)
   })
   .listen(PORT, err => {
